@@ -138,10 +138,7 @@ class GeneratorTest extends PHPUnit_Framework_TestCase
 	{
 		//return command as whole crontab command, without any other things
 		$parser = $this->getMock('\Krolikoff\CronGen\Parser\Parser', array('getRunConfig'));
-		$parser->expects($this->any())->method('getRunConfig')
-			->will($this->returnCallback(function($a, $b, $c) {
-				return $b;
-			}));
+		$parser->expects($this->any())->method('getRunConfig')->will($this->returnArgument(1));
 		
 		$gen = new \Krolikoff\CronGen\Generator();
 		$gen->setParser($parser);
