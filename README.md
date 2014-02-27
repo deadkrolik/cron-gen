@@ -1,9 +1,9 @@
 Crontab generator from JSON
 ========
 
-This generator allows you store your cron-task config in VCS as a simple JSON-file and install it on server after deployment. You can describe task execution time as a human friendly phrase:
+This generator allows you store your cron-tasks config in VCS as a simple JSON-file and install it on server after deployment. You can describe task execution time as a human friendly phrase:
 * Every 12 minutes
-* Every hour at 22 minute
+* Every 22th minute of every hour
 * Every day at 10:20
 
 Json-config concepts
@@ -70,7 +70,7 @@ This example config
             "title": "Upload job",
             "is_enabled" : false,
             "profiles": ["local"],
-            "schedule": "every hour at 20 minute",
+            "schedule": "every 20th minute of every hour",
             "command": "{PREFIX} admin upload photos"
         }
     ]

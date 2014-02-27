@@ -24,7 +24,7 @@ class ParserCoreTest extends PHPUnit_Framework_TestCase
 	{
 		$parser = new \Krolikoff\CronGen\Parser\Parser();
 		
-		$const = $parser->matchRegexp('every hour at 11 minute');
+		$const = $parser->matchRegexp('every 11th minute of every hour');
 		$this->assertEquals(\Krolikoff\CronGen\Parser\ParserUnix::FORMAT_EVERY_HOUR_AT_X, $const);
 	}
 	
@@ -54,8 +54,8 @@ class ParserCoreTest extends PHPUnit_Framework_TestCase
 	public function testGetMatchesForEveryHourAtXMinute()
 	{
 		$parser = new \Krolikoff\CronGen\Parser\Parser();
-		$parser->matchRegexp('every hour at 22 minute');
-		$this->assertEquals(array(22), $parser->getMatches());
+        $parser->matchRegexp('every 22th minute of every hour');
+		$this->assertEquals(array(22, 'th'), $parser->getMatches());
 	}
 	
 	public function testGetMatchesForEveryDayAtX()

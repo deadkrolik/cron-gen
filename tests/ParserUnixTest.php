@@ -21,7 +21,7 @@ class ParserUnixTest extends PHPUnit_Framework_TestCase
 	public function testConvertForEveryHourAtXMinute()
 	{
 		$parser = new \Krolikoff\CronGen\Parser\ParserUnix();
-		$this->assertEquals('12 * * * *', $parser->convertConfig('every hour at 12 minute'));
+		$this->assertEquals('12 * * * *', $parser->convertConfig('every 12th minute of every hour'));
 	}
 	
 	public function testConvertForEveryDayAtX()

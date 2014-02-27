@@ -11,9 +11,9 @@ class Parser
 
 	//which human readable strings we support
 	protected $regexps = array(
-		self::FORMAT_EVERY_X_MINUTES => 'every[ ]+([0-9]+)[ ]+minutes?',
-		self::FORMAT_EVERY_HOUR_AT_X => 'every[ ]+hour[ ]+at[ ]+([0-9]+)[ ]+minute',
-		self::FORMAT_EVERY_DAY_AT_X  => 'every[ ]+day[ ]+at[ ]+([0-9]+):([0-9]+)',
+		self::FORMAT_EVERY_X_MINUTES => 'every ([0-9]+) minutes?',
+        self::FORMAT_EVERY_HOUR_AT_X => 'every ([0-9]+)(st|nd|rd|th) minute of every hour',
+		self::FORMAT_EVERY_DAY_AT_X  => 'every day at ([0-9]+):([0-9]+)',
 	);
 	
 	/**
@@ -32,10 +32,12 @@ class Parser
 	{
 		$this->matches = array();
 		$is_matched    = false;
+        
+        $string = preg_replace("|[ ]+|", ' ', $string);
 		
 		foreach ($this->regexps as $const => $match) {
-	
-			$is_matched = @preg_match("|^{$match}$|Ui", trim($string), $mt);
+
+			$is_matched = @preg_match("/^{$match}$/Ui", trim($string), $mt);
 			if (!$is_matched) {
 				continue;
 			}

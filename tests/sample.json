@@ -30,7 +30,7 @@
             "title": "Upload job",
             "is_enabled" : false,
             "profiles": ["local"],
-            "schedule": "every hour at 20 minute",
+            "schedule": "every 2nd minute of every hour",
             "command": "{PREFIX} admin upload photos"
         }
     ]
