@@ -15,7 +15,7 @@ class InstallerUnix implements Installer
 	public function install($lines)
 	{
 		$tmp_cron = tempnam(sys_get_temp_dir(), 'crogen');
-		file_put_contents($tmp_cron, implode("\n", $lines));
+		file_put_contents($tmp_cron, trim(implode("\n", $lines))."\n");
 		
 		$output = array();
 		exec($this->cmd.' '.$tmp_cron.' 2>&1', $output);
