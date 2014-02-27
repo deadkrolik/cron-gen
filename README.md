@@ -1,15 +1,15 @@
 Crontab generator from JSON
 ========
 
-This generator allows you store your cron-tasks configs in your VCS as a simple JSON-file and install it on server after deployment. You can describe job execution time as an human friendly string:
-* every 12 minutes
-* every hour at 22 minute
-* every day at 10:20
+This generator allows you store your cron-task config in VCS as a simple JSON-file and install it on server after deployment. You can describe task execution time as a human friendly phrase:
+* Every 12 minutes
+* Every hour at 22 minute
+* Every day at 10:20
 
 Json-config concepts
 --------
 
-*Profile* - it's a enviroment, for example you can disable some tasks on test server.
+*Profile* - it's an enviroment, for example you can disable some tasks on test server.
 
 Each profile has variables, which will be replaced in command line. It can be path to your framework console.php file or other cli utility.
 
@@ -34,7 +34,7 @@ catch (\Exception $e) {
 }
 ```
 
-This config
+This example config
 --------
 
 ```json
@@ -77,7 +77,7 @@ This config
 }
 ```
 
-will produce following crontab file for profile "www":
+will produce following crontab file for the profile "www":
 
 ```php
 #Stat job

@@ -133,6 +133,12 @@ class GeneratorTest extends PHPUnit_Framework_TestCase
 		)))->generate('profile_1');
 		$this->assertEquals(array('command1', 'command2', 'command4'), $generator->getCommands());
 	}
+    
+    public function testRealConfig()
+    {
+        //without exceptions
+        \Krolikoff\CronGen\Generator::init()->setJson(__DIR__.'/sample.json')->generate('local');
+    }
 
 	private function getGenerator()
 	{

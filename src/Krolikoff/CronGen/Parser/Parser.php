@@ -61,13 +61,13 @@ class Parser
 	}
 	
 	//mock for child classes
-	public function convertConfig()
+	public function convertConfig($string)
 	{
 		return '';
 	}
 	
 	//mock for child classes
-	public function getRunConfig()
+	public function getRunConfig($schedule, $command, $title)
 	{
 		return '';
 	}

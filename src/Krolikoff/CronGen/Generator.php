@@ -90,6 +90,10 @@ class Generator
 		
 		foreach ($this->json->jobs as $job) {
 
+            if (!isset($job->is_enabled)) {
+                throw new \Exception('Job must have is_enabled property');
+            }
+            
 			//job disabled or not for this profile
 			if (!$job->is_enabled || !in_array($profile_name, $job->profiles)) {
 				continue;
